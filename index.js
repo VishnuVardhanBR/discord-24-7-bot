@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const ytdl = require("ytdl-core");
 require('dotenv').config()
 
-const mentionID = process.env.MENTION_ID
+var mentionID = process.env.MENTION_ID
 const token = process.env.TOKEN
 
 const client = new Discord.Client();
@@ -11,9 +11,9 @@ var tuned;
 var stop, update;
 
 client.once("ready", () => {
+    mentionID = client.user.id
     console.log("I'm ready Vain sir");
     client.user.setActivity('PING ME', { type: "LISTENING" })
-
 });
 
 client.once("reconnecting", () => {
